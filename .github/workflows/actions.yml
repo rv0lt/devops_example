@@ -34,4 +34,4 @@ jobs:
           context: .
           file: ./files/Dockerfile
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/resumeWebServer:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/resumewebserver:latest
