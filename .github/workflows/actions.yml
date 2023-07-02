@@ -32,6 +32,6 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           context: .
-          file: ./files/Dockerfile
+          file: ./image/Dockerfile
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/resumewebserver:latest
