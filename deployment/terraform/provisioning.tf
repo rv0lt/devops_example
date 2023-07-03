@@ -5,20 +5,21 @@ provider "google" {
   zone = "us-east1-b"
 }
 
+# micro instance available to use on the free tier of gcp
 resource "google_compute_instance" "instance-example" {
     name         = "instance-example"
     machine_type = "e2-micro"
 
     boot_disk {
         initialize_params {
-        image = "ubuntu-os-cloud/ubuntu-2004-lts"
-        }
+          image = "ubuntu-os-cloud/ubuntu-2004-lts"
+      }
     }
 
     can_ip_forward = "true"
 
     metadata = {
-    ssh-keys = "rv0lt:${file("~/.ssh/gcloud_key.pub")}"
+        ssh-keys = "rv0lt:${file("~/.ssh/gcloud_key.pub")}"
     }
 
 
@@ -35,6 +36,7 @@ resource "google_compute_instance" "instance-example" {
     }
 }
 
+# print the external IP that has been given to the instance
 output "ip-address" {
   value = "${google_compute_instance.instance-example.network_interface.0.access_config.0.nat_ip}"
 }

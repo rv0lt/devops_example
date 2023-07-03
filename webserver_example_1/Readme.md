@@ -13,5 +13,5 @@ This application is an nginx web server, the configuration file has been modifie
 
 The CV folder, contains the latex source code to compile the resume, the resume is compile within the GitHub Actions workflow, so the pdf is not on this folder.
 
-The Dockerfile contains the instructions to build the container.
+The Dockerfile contains the instructions to build the container. The docker image is available on the [DockerHub registry](https://hub.docker.com/repository/docker/rv0lt/resumewebserver/general)
 

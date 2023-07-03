@@ -1,2 +1,2 @@
 [host]
-35.185.17.12 ansible_ssh_private_key_file=~/.ssh/gcloud_key
+34.138.195.100 ansible_ssh_private_key_file=~/.ssh/gcloud_key

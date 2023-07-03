@@ -15,4 +15,4 @@ def get_random_numbers():
     return jsonify(numbers=random_numbers)
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0')
+    app.run(host='0.0.0.0') #only valid for development purposes
