@@ -28,10 +28,18 @@ jobs:
         name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
       -
-        name: Build img and push
+        name: Build and push image for webserver 1
         uses: docker/build-push-action@v4
         with:
           context: .
-          file: ./image/Dockerfile
+          file: ./webserver_example_1/Dockerfile
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/resumewebserver:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/resumewebserver:v1
+      -
+        name: Build and push image for webserver 2
+        uses: docker/build-push-action@v4
+        with:
+          context: .
+          file: ./webserver_example_2/Dockerfile
+          push: true
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/flaskwebserver:v1
