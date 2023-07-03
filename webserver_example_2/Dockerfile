@@ -5,7 +5,7 @@ FROM python:3.9-slim
 RUN pip install --no-cache-dir flask
 
 # Copy the API code into the container
-COPY api.py .
+COPY ./webserver_example_2/api.py .
 
 # Expose the port on which the API will run
 EXPOSE 5000
