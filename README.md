@@ -1,4 +1,6 @@
-# devops_example
+# Devops_example
+
+[![pipeline](https://github.com/rv0lt/devops_example/actions/workflows/actions.yml/badge.svg)](https://github.com/rv0lt/devops_example/actions/workflows/actions.yml)
 
 This repository is a small project containing an example for a DevOps worflow:
 
