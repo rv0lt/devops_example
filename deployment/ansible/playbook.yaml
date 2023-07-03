@@ -1,0 +1,74 @@
+# https://www.digitalocean.com/community/tutorials/how-to-use-ansible-to-install-and-set-up-docker-on-ubuntu-20-04
+---
+- hosts: host
+  become: true
+  tasks:
+    - name: Install aptitude
+      apt:
+        name: aptitude
+        state: latest
+        update_cache: true
+
+    - name: Install required system packages
+      apt:
+        pkg:
+          - apt-transport-https
+          - ca-certificates
+          - curl
+          - software-properties-common
+          - python3-pip
+          - virtualenv
+          - python3-setuptools
+        state: latest
+        update_cache: true
+
+    - name: Add Docker GPG apt Key
+      apt_key:
+        url: https://download.docker.com/linux/ubuntu/gpg
+        state: present
+
+    - name: Add Docker Repository
+      apt_repository:
+        repo: deb https://download.docker.com/linux/ubuntu focal stable
+        state: present
+
+    - name: Update apt and install docker-ce
+      apt:
+        name: docker-ce
+        state: latest
+        update_cache: true
+
+    - name: Install Docker Module for Python
+      pip:
+        name: docker
+    
+    - name: Install requests Module for Python
+      pip:
+        name: requests
+    
+    - name: Pull Docker image 1
+      community.docker.docker_image:
+        name: "rv0lt/resumewebserver"
+        source: pull
+
+    - name: Pull Docker image 2
+      community.docker.docker_image:
+        name: "rv0lt/flightradartest:v1"
+        source: pull
+
+    - name: Create container webserver 1
+      # sudo docker run -it --rm -d -p 8080:80 rv0lt/resumewebserver
+      community.docker.docker_container:
+        image: "rv0lt/resumewebserver:v1"
+        name: webserver_example_1
+        state: started
+        detach: true
+        published_ports: 8080:80
+  
+    - name: Create container webserver 2
+      community.docker.docker_container:
+        image: "rv0lt/flaskwebserver:v1"
+        name: webserver_example_2
+        state: started
+        detach: true
+        published_ports: 5000:5000
