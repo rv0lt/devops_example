@@ -18,7 +18,7 @@ There are two demo web servers applications developed:
 
 Both of them are bundled in docker containers.
 
-The first one (the nginx) serves on **localhost:8000/cv** my resume. Whereas the second one has two endoints: in **locahost:5000/time** displays the time in Unix and **localhost:5000/random** gives 5 random numbers from 1 to 10.
+The first one (the nginx) serves on **localhost:8000/cv** my resume. Whereas the second one has two endoints: in **locahost:5000/time** displays the time in Unix and **localhost:5000/random** gives 10 random numbers from 1 to 5.
 
 The two directories: [webserver_example_1](https://github.com/rv0lt/devops_example/tree/main/webserver_example_1 "webserver_example_1") and [webserver_example_2](https://github.com/rv0lt/devops_example/tree/main/webserver_example_2 "webserver_example_1") contain the source code of them. As well as explanations on how they were coded and how they work
 
