@@ -48,18 +48,18 @@
     
     - name: Pull Docker image 1
       community.docker.docker_image:
-        name: "rv0lt/resumewebserver:v1"
+        name: "rv0lt/resumewebserver"
         source: pull
 
     - name: Pull Docker image 2
       community.docker.docker_image:
-        name: "rv0lt/flightradartest:v1"
+        name: "rv0lt/flightradartest"
         source: pull
 
     - name: Create container webserver 1
       # sudo docker run -it --rm -d -p 8080:80 rv0lt/resumewebserver
       community.docker.docker_container:
-        image: "rv0lt/resumewebserver:v1"
+        image: "rv0lt/resumewebserver"
         name: webserver_example_1
         state: started
         detach: true
@@ -67,7 +67,7 @@
   
     - name: Create container webserver 2
       community.docker.docker_container:
-        image: "rv0lt/flaskwebserver:v1"
+        image: "rv0lt/flaskwebserver"
         name: webserver_example_2
         state: started
         detach: true
