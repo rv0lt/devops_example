@@ -6,6 +6,6 @@ COPY ./webserver_example_1/default.conf /etc/nginx/conf.d/default.conf
 EXPOSE 8080
 
 # run as non root user
-USER nginx
+# USER nginx
 
 CMD ["nginx","-g", "daemon off;"]
